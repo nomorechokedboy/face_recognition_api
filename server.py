@@ -1,16 +1,18 @@
-import base64
-import io
-from pyexpat import model
-
-import cv2
-from flask import Flask, request as req, jsonify as json, send_file, make_response as make_res
 import os
-import werkzeug.utils
-from util_funcs import blob_to_image, predict_image, predict_image, get_face_image, train_model
-from flask_cors import CORS, cross_origin
+
 import cloudinary
 import cloudinary.uploader
+import cv2
+import werkzeug.utils
 from dotenv import load_dotenv
+from flask import Flask
+from flask import jsonify as json
+from flask import request as req
+from flask_cors import CORS, cross_origin
+
+from util_funcs import (blob_to_image, get_face_image, predict_image,
+                        train_model)
+
 load_dotenv()
 
 app = Flask(__name__)
